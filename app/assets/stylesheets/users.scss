@@ -1,0 +1,21 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signup-form {
+	padding-top: 20px;
+}
+
+.card {
+	text-align: center;
+	color: white;
+	padding-top: 20px;
+
+	&.card-odd {
+		background-color: lightgreen;
+	}
+
+	&.card-even {
+		background-color: lightsalmon;
+	}
+}

@@ -1,0 +1,22 @@
+module ApplicationHelper
+	def user_image_url(user)
+		logger.debug('Invoke user_image_url method')
+		if user.image_url.present?
+			@image_url = user.image_url
+		else	
+			@image_url = 'http://placehold.it/72x72';
+		end
+	end
+
+	def bootstrap_class_for flash_type
+    	{ success: 'alert-success', error: 'alert-danger', notice: 'alert-warning'}[flash_type.to_sym]
+  	end
+
+  def flash_messages(opts = {})
+    flash.map do |msg_type, message|
+      content_tag(:div, message, class: "alert #{bootstrap_class_for(msg_type)} fade in") do
+        content_tag(:button, 'x'.html_safe, class: 'close', data: {dismiss: 'alert'}) + message
+      end
+    end.join.html_safe
+  end
+end
