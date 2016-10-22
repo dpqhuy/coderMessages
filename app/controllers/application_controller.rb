@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
-  helper_method :current_user, :signed_in?
+  helper_method :current_user, :signed_in?, :friend_list
 
   def current_user
 		return @current_user if @current_user
@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
 		end
 		return nil
 	end
+
+  def friend_list
+    @friend_list = current_user.friends + current_user.inverse_friends
+  end
 
   def require_login
   	unless signed_in?

@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
-  get 'sessions/create'
 
-  get 'sessions/destroy'
-
+  resources :sessions
   resources :users
+  resources :friendships
+  resources :messages
+
+  get 'login' => 'sessions#new'
+  get 'logout' => 'sessions#destroy'
+
+  get 'messages_sent' => 'messages#sent' 
 
   root 'users#new'
 

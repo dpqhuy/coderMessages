@@ -1,0 +1,26 @@
+<div class="container padding-top">
+	<table style="width:100%">
+	  <tr>
+	    <th>Receive At</th>
+	    <th>Content</th> 
+	    <th>Sender</th>
+	  </tr>
+	  <% @messages.each do |m| %>
+		<% if m.recipients.find_by_receiver_id(current_user.id).status != 'read' %>
+	    	<% @statusClass = "unread" %>
+	    <% else %>
+	    	<% @statusClass = "" %>
+	    <% end %>
+	  	<tr class="<%= @statusClass %>">
+		    <td><%= distance_of_time_in_words(m.created_at, Time.now) %></td>
+		    <td><%= link_to "#{m.content[0...30]}...", message_path(m.id), class: "msg" %></td> 
+		    <td><%= m.sender.email %></td>
+	  	</tr>
+	  <% end %>
+	</table>
+	<div class="padding-top">
+		<%= link_to "New Message", new_message_path, class: "btn btn-primary" %>
+		<%= link_to "Sent Message", messages_sent_path, class: "btn btn-primary" %>
+		<%= link_to "Add Friends", users_path, class: "btn btn-primary" %>
+	</div>
+</div>

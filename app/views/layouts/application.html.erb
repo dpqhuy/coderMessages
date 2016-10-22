@@ -9,6 +9,35 @@
   </head>
 
   <body>
+    <nav class="navbar navbar-light bg-faded">
+
+      <!-- Toggle Button -->
+      <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="collapse" data-target="#nav-content">
+        &#9776;
+      </button>
+      <!-- Nav Content -->
+      <div class="collapse navbar-toggleable-xs" id="nav-content">
+        <a class="navbar-brand" href="/"><%= image_tag 'logo-small.png' %></a>
+        <ul class="nav navbar-nav">
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to "Sign Out #{current_user.email}", logout_path, class: 'nav-link bold' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Message List", messages_path, class: 'nav-link'%>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <%= link_to "Sign up", new_user_path, class: 'nav-link'%>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Sign In", login_path, class: 'nav-link'%>
+          </li>
+        <% end %>
+        </ul>
+      </div>
+    </nav>
+
   	<%= flash_messages %>
     <%= yield %>
   </body>

@@ -1,0 +1,32 @@
+<div class="container padding-top">
+	<table style="width:100%">
+	  <tr>
+	    <th>Sent At</th>
+	    <th>Content</th> 
+	    <th>Receiver</th>
+	  </tr>
+	  <% @messages.each do |m| %>
+	  	<tr>
+		    <td><%= m.created_at.strftime("%d.%m.%Y %T") %></td>
+		    <td><%= "#{m.content[0...30]}..." %></td>
+		    <td>
+		    	<ul>
+		    	<% m.recipients.each do |recipient| %>
+		    		<li>
+		    		<% if recipient.status == 'read' %>
+		    			<%= "#{recipient.receiver.email} read at #{recipient.updated_at.strftime("%d.%m.%Y %T")}" %>
+		    		<% else %>
+		    			<%= "#{recipient.receiver.email} unread" %>
+		    		<% end %>
+		    			
+		    		</li>
+		    	<% end %>
+		    	</ul>
+		    </td>
+	  	</tr>
+	  <% end %>
+	</table>
+	<div class="padding-top">
+		<%= link_to "Back To Messge List", messages_path, class: "btn btn-primary" %>
+	</div>
+</div>
