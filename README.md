@@ -4,7 +4,7 @@
 
 Submitted by: *Dinh Phan Quoc Huy*
 
-Time spent: *7* hours
+Time spent: *8* hours
 
 URL: **Insert your Heroku URL here**
 
@@ -54,7 +54,7 @@ Describe any challenges encountered while building the app.
 
 ## License
 
-    Copyright [yyyy] [name of copyright owner]
+    Copyright [Dinh Phan Quoc Huy] [name of copyright owner]
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
