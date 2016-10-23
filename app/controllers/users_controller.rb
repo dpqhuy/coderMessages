@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 	before_action :require_login, only: [:index]
 
   def index
-  	@users = User.where.not(:id => current_user.id)
+  	@users = User.where.not(:email => current_user.email)
   end
 
   def new
