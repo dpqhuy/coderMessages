@@ -6,7 +6,7 @@ Submitted by: *Dinh Phan Quoc Huy*
 
 Time spent: *8* hours
 
-URL: **Insert your Heroku URL here**
+URL: *https://coder-messages.herokuapp.com/users*
 
 ## User Stories
 
@@ -44,7 +44,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-![Video Walkthrough](relative-path-to-your-gif-file-on-github-or-absolute-path-to-file-on-imgur-or-youtube)
+![Video Walkthrough](week2-walkthrough.gif)
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
