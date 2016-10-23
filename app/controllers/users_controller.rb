@@ -2,11 +2,7 @@ class UsersController < ApplicationController
 	before_action :require_login, only: [:index]
 
   def index
-
-  	@current_user = current_user
-  	@users = User.all.to_a.reject do |user|
-  		user == current_user or @current_user.friends.include?(user) or @current_user.inverse_friends.include?(user)
-  	end
+  	@users = User.where.not(:id => current_user.id)
   end
 
   def new

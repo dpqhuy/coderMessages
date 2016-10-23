@@ -3,7 +3,12 @@
  <%= image_tag user_image_url(user) %>
     <div class="card-block">
       <h4 class="card-title"><%= user.try(:name) %></h4>
-      <%= link_to "Add Friend", friendships_path(:friend_id => user.id), method: :post, class: "btn btn-primary" %> 
+      <p class="card-text"><%= user.try(:email) %></p>
+      <% if  current_user.friends.include?(user) or current_user.inverse_friends.include?(user)%>
+      	<a href="#" class="btn btn-primary disabled">Friend</a>
+      <% else %>
+      	<%= link_to "Add Friend", friendships_path(:friend_id => user.id), method: :post, class: "btn btn-primary" %> 
+      <% end %>
     </div>
   </div>
 </div>
